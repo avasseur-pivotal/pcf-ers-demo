@@ -2,12 +2,12 @@
 applications:
 - name: attendees-v2
   hosts:
-    - attendees-v2-${random-word}
-    - attendees-production
+    - attendees-v2
+    #- attendees-production
   memory: 1G
   instances: 1
   path: target/pcf-ers-demo-2.0.jar
 #  buildpack: java_buildpack
-  services: []
-  env:
-    SPRING_PROFILES_ACTIVE: cloud
+#  services: []
+#  env:
+#    SPRING_PROFILES_ACTIVE: cloud

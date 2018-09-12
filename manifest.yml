@@ -1,11 +1,16 @@
 ---
 applications:
 - name: attendees
-  hosts:
-    - attendees-v1-${random-word}
-    - attendees-production
+  random-route: true
+#  hosts:
+#    - attendees-v1
+#    - attendees-production
   memory: 1G
   instances: 1
   path: target/pcf-ers-demo-1.0.jar
+# buildpack: java_buildpack
 #  env:
+#    JAVA_OPTS: -Xmx2g
 #    JBP_CONFIG_DEBUG: '{enabled: true}'
+#  services:
+#    - myinstancemysql
