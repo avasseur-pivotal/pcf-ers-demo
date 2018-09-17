@@ -22,7 +22,7 @@ public class DummyDataCLR  implements CommandLineRunner {
 		// MMB: Left here because I like the new Java 8 Stream API. A reminder for further research
 		//Stream.of("Roy", "Darrel").forEach(a -> attendeeRepository.save(new Attendee(a)));
 		attendeeRepository.findAll().forEach(System.out::println);
-		attendeeRepository.findByFirstNameIgnoreCase("Roy", new PageRequest(1, 10)).forEach(System.out::println);
+		attendeeRepository.findByFirstNameIgnoreCase("Roy", PageRequest.of(1, 10)).forEach(System.out::println);
 	}
 	
 }

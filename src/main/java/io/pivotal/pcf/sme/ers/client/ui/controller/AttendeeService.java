@@ -62,7 +62,7 @@ public class AttendeeService {
 	
 	// returning server object
 	Iterable<Attendee> searchName(String firstName) {
-		return attendeeRepository.findByFirstNameContainsIgnoreCase(firstName, new PageRequest(0,100));
+		return attendeeRepository.findByFirstNameContainsIgnoreCase(firstName, PageRequest.of(0,100));
 	}
 	
 
