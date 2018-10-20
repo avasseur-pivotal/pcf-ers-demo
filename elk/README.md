@@ -2,6 +2,24 @@
 
 This is an ELK with a configured syslog endpoint that can parse CF logs.
 
+## Working with Harbor
+
+Make sure your user has Developer role for the `library` registry in Harbor
+
+then
+```
+docker login harbor.pks.pvtl.eu -u email@pivotal.io
+
+docker build -t avasseur/elasticsearch:latest .
+
+docker tag avasseur/elasticsearch harbor.pks.pvtl.eu/library/elasticsearch
+docker images
+docker push harbor.pks.pvtl.eu/library/elasticsearch  
+```
+
+and update your K8s yml for referencing the Harbor library
+
+
 ## How To
 
 Login in PKS
