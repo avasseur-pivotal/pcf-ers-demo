@@ -56,18 +56,25 @@ kubectl describe pod elk
 Note the LoadBalancer external IP in the service list for your ELK - which comes from the PKS SDN
 Show the Kibana UI - http://ip:5601
 
-You can then capture the logstash external public IP of the load balancer and do a 
+## Using with PCF PAS
+
+You can then capture the logstash external public IP of the load balancer and do a
 ```
-cups -l syslog://ip:5000 
+cups -l syslog://ip:5000
 (no app restart needed)
 ```
-
 to stream logs from CF apps to PKS ELK
 
+but you can also use a space-level drain that fits better with microservices demos.
+```
+cf drain-space --drain-name K8s-ELK syslog://35.241.250.195:5000
+# later remove with
+# cf delete-drain-space K8s-ELK
+```
 
 ## Limitations
 
 This is a demo and the ELK is not secured.
+The ELK may start in 2 mins or more, sometime longer than the LoadBalancer K8s provisioned IP
 TODO - the volume is not mapped properly to the ELK install
 TODO - multi pod deployment iteration
-
