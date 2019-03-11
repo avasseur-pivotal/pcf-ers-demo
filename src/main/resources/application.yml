@@ -11,7 +11,7 @@ spring:
     name: attendees
 
 #management.security.enabled: false
-    
+
 # Using macros that are replaced by maven build
 info:
   build:
@@ -19,3 +19,8 @@ info:
     name: @project.name@
     description: @project.description@
     version: @project.version@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
